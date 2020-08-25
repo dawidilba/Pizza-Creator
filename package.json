@@ -4,8 +4,8 @@
   "description": "Application for creating pizzas ",
   "main": "index.js",
   "scripts": {
-    "start" : "react-scripts start",
-    "build" : "react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test"
   },
   "keywords": [
@@ -18,5 +18,17 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

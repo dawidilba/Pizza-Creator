@@ -1,0 +1,66 @@
+[
+    {
+        "name" : "Double Cheese",
+        "price" : 2.19
+    },
+    {
+        "name" : "Ham",
+        "price" : 3.10
+    },
+    {
+        "name" : "Sausage",
+        "price" : 3.49
+    },
+    {
+        "name" : "Salami",
+        "price" : 4.19
+    },
+    {
+        "name" : "Pineapple",
+        "price" : 1.19
+    },
+    {
+        "name" : "Onion",
+        "price" : 1.29
+    },
+    {
+        "name" : "Garlic",
+        "price" : 1.09
+    },
+    {
+        "name" : "Corn",
+        "price" : 0.99
+    },
+    {
+        "name" : "Cucumber",
+        "price" : 1.19
+    },
+    {
+        "name" : "Olives",
+        "price" : 1.59
+    },
+    {
+        "name" : "Peper",
+        "price" : 0.89
+    },
+    {
+        "name" : "Chilli Peper",
+        "price" : 1.29
+    },
+    {
+        "name" : "Tomato",
+        "price" : 0.99
+    },
+    {
+        "name" : "Peper",
+        "price" : 0.89
+    },
+    {
+        "name" : "Spinach",
+        "price" : 1.69
+    },
+    {
+        "name" : "Mushrooms",
+        "price" : 1.49
+    } 
+]
