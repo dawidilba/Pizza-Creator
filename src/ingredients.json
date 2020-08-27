@@ -16,10 +16,6 @@
         "price" : 4.19
     },
     {
-        "name" : "Pineapple",
-        "price" : 1.19
-    },
-    {
         "name" : "Onion",
         "price" : 1.29
     },
@@ -36,10 +32,6 @@
         "price" : 1.19
     },
     {
-        "name" : "Olives",
-        "price" : 1.59
-    },
-    {
         "name" : "Peper",
         "price" : 0.89
     },
@@ -50,10 +42,6 @@
     {
         "name" : "Tomato",
         "price" : 0.99
-    },
-    {
-        "name" : "Peper",
-        "price" : 0.89
     },
     {
         "name" : "Spinach",

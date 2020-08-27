@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Raleway', sans-serif;
+}
 /* HEADER */
 .header-img{
     position: relative;
@@ -34,5 +37,48 @@
 /* MAIN */
 main{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+}
+.pizzaContainer{
+    position: relative;
+    display: inline-block;
+}
+.mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: green;
+    content: "\2713";
+}
+.pizza{
+    cursor: pointer;
+    opacity: 0.5;
+}
+.small{
+    width: 100px;
+}
+.medium{
+    width: 150px;
+}
+.big{
+    width: 200px;
+}
+.ingredientContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.ingredient{
+    display: flex;
+    align-items: center;
+    padding: 0 20px
+}
+.ingredient p:last-of-type{
+    margin-left: auto;
+}
+.ingredientIcon{
+    margin: 0px 10px;
+    width: 50px;
+    height: 50px;
 }
