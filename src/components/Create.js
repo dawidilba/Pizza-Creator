@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import Ingredients from '../ingredients.json'
+import Ingredients from '../ingredients.json';
+
 
 export default function Create(props){
     const [ingredients, setIngredients] = useState([]);
@@ -48,23 +49,30 @@ export default function Create(props){
         if(size != ""){
             props.getPizza({size : size, cost: cost, ingredients : ingredientsArr });
         }
+        setIngredients(
+            ingredients.map(ingredient => {
+                ingredient.checked = false;
+                return ingredient;
+            }));
+        setPizza(0);
     }
     return (
-        <div>
+        <div className="createContainer">
             <h2>Choose your favourite ingredients!</h2>
-            <h3> Cost : {cost.toFixed(2)}zł</h3>
-            <button onClick={() => pizzaInfo()}>Order</button>
-            <div class="pizzaContainer">
-                <img className={"pizza small" + (pizza === 11 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="small pizza" onClick={() => setPizza(11)}/>
-                <span className={ pizza===11 ? "mark" : "displayNone"}>&#10003;</span>
-            </div>
-            <div class="pizzaContainer">
-                <img className={"pizza medium" + (pizza === 14 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="medium pizza" onClick={() => setPizza(14)}/>
-                <span className={ pizza===14 ? "mark" : "displayNone"}>&#10003;</span>
-            </div>
-            <div class="pizzaContainer">
-                <img className={"pizza big" + (pizza === 17 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="big pizza" onClick={() => setPizza(17)}/>
-                <span className={ pizza===17 ? "mark" : "displayNone"}>&#10003;</span>
+            <div>
+                <div className="pizzaContainer">
+                    <img className={"pizza small" + (pizza === 11 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="small pizza" onClick={() => setPizza(11)}/>
+                    <span className={ pizza===11 ? "mark" : "displayNone"}>&#10003;</span>
+                    
+                </div>
+                <div className="pizzaContainer">
+                    <img className={"pizza medium" + (pizza === 14 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="medium pizza" onClick={() => setPizza(14)}/>
+                    <span className={ pizza===14 ? "mark" : "displayNone"}>&#10003;</span>
+                </div>
+                <div className="pizzaContainer">
+                    <img className={"pizza big" + (pizza === 17 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="big pizza" onClick={() => setPizza(17)}/>
+                    <span className={ pizza===17 ? "mark" : "displayNone"}>&#10003;</span>
+                </div>
             </div>
             <div className="ingredientContainer">  
             { ingredients.map((el, index)=> {
@@ -76,6 +84,10 @@ export default function Create(props){
                         <p>{el.price.toFixed(2)}zł</p>
                     </div>
             )})}
+            </div>
+            <div>
+                <h3> Cost : {cost.toFixed(2)}zł</h3>
+                <button onClick={() => pizzaInfo()}>Order</button>
             </div>
         </div>
     )

@@ -34,14 +34,32 @@ body{
     font-family: 'Raleway', sans-serif;
     text-shadow: 2px 2px 1px black;
 }
-/* MAIN */
 main{
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+/* CREATE */
+.createContainer{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 }
 .pizzaContainer{
     position: relative;
     display: inline-block;
+}
+.createContainer h2{
+    margin: 15px 0 5px;
+}
+.createContainer h3{
+    display: inline-block;
+    margin: 10px 20px 30px 0px;
+}
+.createContainer button{
+    font-size: 16px;
 }
 .mark {
     position: absolute;
@@ -87,3 +105,4 @@ main{
     width: 50px;
     height: 50px;
 }
+/* ORDER */
