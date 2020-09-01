@@ -1,7 +1,25 @@
 import React, {useState} from 'react';
+import { withRouter } from 'react-router-dom';
+import { Order } from './Order'
+import { ContextConsumer } from '../index'
 
-export default function Pay(props){
+export default withRouter(Pay);
+
+function Pay(props){
     return (
-        <h2>Thank you for your payment!</h2>
+        <ContextConsumer>
+            {
+                (context) => {
+                    return (
+                    <>  
+                        <span>Pizza {context.data.size} with </span> 
+                        <h2>Thank you for your payment!</h2>
+                        <button onClick={()=>props.history.push("/")}>Back</button>
+                    </>
+                    )
+                }
+            }
+
+        </ContextConsumer>
     )
 }

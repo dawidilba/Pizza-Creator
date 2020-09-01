@@ -1,24 +1,25 @@
 import React, {useState, useEffect} from 'react';
 import Ingredients from '../ingredients.json';
-
+import PizzaContainer from './PizzaContainer';
+import { ContextConsumer } from '../index'
 
 export default function Create(props){
     const [ingredients, setIngredients] = useState([]);
-    const [cost, setCost] = useState(0);
-    const [pizza, setPizza] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [price, setPrice] = useState(0);
     useEffect(()=>{
         Ingredients.map(el => el.checked = false);
         setIngredients(Ingredients);
     }, [])
     useEffect(() => {
-        let result = pizza;
+        let result = price;
         ingredients.map(ingredient => {
             if(ingredient.checked === true){
                 result += ingredient.price;
             }
         })
-        setCost(result);
-    }, [ingredients, pizza])
+        setTotalPrice(result);
+    }, [ingredients, price])
     const ingredientsCheck = (el) => {
         setIngredients(
         ingredients.map(ingredient => {
@@ -28,9 +29,9 @@ export default function Create(props){
             return ingredient;
         }));
     };
-    const pizzaInfo = () => {
+    const pizzaInfo = (ctx) => {
         let size = "";
-        switch(pizza){
+        switch(price){
             case 11: 
             size = "small";
             break;
@@ -47,32 +48,24 @@ export default function Create(props){
             }
         })
         if(size != ""){
-            props.getPizza({size : size, cost: cost, ingredients : ingredientsArr });
+            props.getPizza({size : size, cost: totalPrice, ingredients : ingredientsArr });
+            ctx.update({size : size, cost: totalPrice, ingredients : ingredientsArr });
         }
         setIngredients(
             ingredients.map(ingredient => {
                 ingredient.checked = false;
                 return ingredient;
             }));
-        setPizza(0);
+        setPrice(0);
     }
+    const pizzaClick = (el) => setPrice(parseInt(el));
     return (
         <div className="createContainer">
             <h2>Choose your favourite ingredients!</h2>
             <div>
-                <div className="pizzaContainer">
-                    <img className={"pizza small" + (pizza === 11 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="small pizza" onClick={() => setPizza(11)}/>
-                    <span className={ pizza===11 ? "mark" : "displayNone"}>&#10003;</span>
-                    
-                </div>
-                <div className="pizzaContainer">
-                    <img className={"pizza medium" + (pizza === 14 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="medium pizza" onClick={() => setPizza(14)}/>
-                    <span className={ pizza===14 ? "mark" : "displayNone"}>&#10003;</span>
-                </div>
-                <div className="pizzaContainer">
-                    <img className={"pizza big" + (pizza === 17 ? " opacity" : "")} src={process.env.PUBLIC_URL + "assets/pizzaSize.jpg"} alt="big pizza" onClick={() => setPizza(17)}/>
-                    <span className={ pizza===17 ? "mark" : "displayNone"}>&#10003;</span>
-                </div>
+                <PizzaContainer size="small" price="11" pizza={price} setPrice={pizzaClick}/>
+                <PizzaContainer size="medium" price="14" pizza={price} setPrice={pizzaClick}/>
+                <PizzaContainer size="big" price="17" pizza={price} setPrice={pizzaClick}/>
             </div>
             <div className="ingredientContainer">  
             { ingredients.map((el, index)=> {
@@ -86,8 +79,17 @@ export default function Create(props){
             )})}
             </div>
             <div>
-                <h3> Cost : {cost.toFixed(2)}zł</h3>
-                <button onClick={() => pizzaInfo()}>Order</button>
+                <h3> Cost : {totalPrice.toFixed(2)}zł</h3>
+                <ContextConsumer>
+                    {
+                        (context) => {
+                            return (
+                                <button onClick={() => pizzaInfo(context)}>Add to order</button>
+                            )
+                        }
+                    }
+                </ContextConsumer>
+
             </div>
         </div>
     )
