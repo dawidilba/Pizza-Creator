@@ -1,25 +1,33 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import { withRouter } from 'react-router-dom';
-import { Order } from './Order'
-import { ContextConsumer } from '../index'
+import { orderContext } from '../index'
+import '../App.css'
 
 export default withRouter(Pay);
 
 function Pay(props){
+    const context = useContext(orderContext);
+    const back = () => {
+        context.clear();
+        props.history.push("/");
+    }
     return (
-        <ContextConsumer>
+        <div className="paymentContainer">
+            <h2>Your order : </h2>
+            <ol>
             {
-                (context) => {
+                context.order.map((el, index) => {
                     return (
-                    <>  
-                        <span>Pizza {context.data.size} with </span> 
-                        <h2>Thank you for your payment!</h2>
-                        <button onClick={()=>props.history.push("/")}>Back</button>
-                    </>
+                        <li key={index}>
+                            <p>{el.size.toUpperCase()} PIZZA : {el.ingredients.map(x => " " + x)} ({el.price.toFixed(2)}zł)</p>
+                        </li>
                     )
-                }
+                })
             }
-
-        </ContextConsumer>
+            </ol>  
+            <h3>Total payment cost : {context.totalCost.toFixed(2)}zł</h3>
+            <p>Thank you for your payment! Your pizza will be ready soon!</p>
+            <button onClick={back}>Back</button>
+        </div>
     )
 }

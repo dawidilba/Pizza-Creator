@@ -1,6 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default function Header(){
+export default withRouter(Header)
+
+function Header(props){
     return (
         <header>
         <div className="header-img">

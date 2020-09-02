@@ -1,19 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Ingredients from '../ingredients.json';
 import PizzaContainer from './PizzaContainer';
-import { ContextConsumer } from '../index'
+import Ingredient from './Ingredient'
+import { orderContext } from '../index'
 
 export default function Create(props){
     const [ingredients, setIngredients] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [price, setPrice] = useState(0);
+    const context = useContext(orderContext)
     useEffect(()=>{
         Ingredients.map(el => el.checked = false);
         setIngredients(Ingredients);
     }, [])
     useEffect(() => {
         let result = price;
-        ingredients.map(ingredient => {
+        ingredients.forEach(ingredient => {
             if(ingredient.checked === true){
                 result += ingredient.price;
             }
@@ -29,8 +31,8 @@ export default function Create(props){
             return ingredient;
         }));
     };
-    const pizzaInfo = (ctx) => {
-        let size = "";
+    const pizzaInfo = () => {
+        let size;
         switch(price){
             case 11: 
             size = "small";
@@ -40,6 +42,9 @@ export default function Create(props){
             break;
             case 17:
             size = "big";
+            break;
+            default:
+            size = "";
         }
         let ingredientsArr = [];
         ingredients.forEach((el) => {
@@ -47,9 +52,8 @@ export default function Create(props){
                 ingredientsArr.push(el.name);
             }
         })
-        if(size != ""){
-            props.getPizza({size : size, cost: totalPrice, ingredients : ingredientsArr });
-            ctx.update({size : size, cost: totalPrice, ingredients : ingredientsArr });
+        if(size !== ""){
+            context.update({size, price: totalPrice, ingredients : ingredientsArr });
         }
         setIngredients(
             ingredients.map(ingredient => {
@@ -68,28 +72,16 @@ export default function Create(props){
                 <PizzaContainer size="big" price="17" pizza={price} setPrice={pizzaClick}/>
             </div>
             <div className="ingredientContainer">  
-            { ingredients.map((el, index)=> {
-                return (
-                    <div className="ingredient" key={index}>
-                        <input type="checkbox" checked={el.checked} onChange={()=> ingredientsCheck(el)}/>
-                        <img className="ingredientIcon" src={process.env.PUBLIC_URL+"/assets/"+el.name+".png"} alt={el.name}/>
-                        <p>{el.name}</p>
-                        <p>{el.price.toFixed(2)}zł</p>
-                    </div>
-            )})}
+            { 
+                ingredients.map((el, index)=> {
+                    return ( 
+                        <Ingredient element={el} ingredientsCheck={ingredientsCheck}/>
+                        )})
+            }
             </div>
             <div>
                 <h3> Cost : {totalPrice.toFixed(2)}zł</h3>
-                <ContextConsumer>
-                    {
-                        (context) => {
-                            return (
-                                <button onClick={() => pizzaInfo(context)}>Add to order</button>
-                            )
-                        }
-                    }
-                </ContextConsumer>
-
+                <button onClick={() => pizzaInfo()}>Add to order</button>
             </div>
         </div>
     )

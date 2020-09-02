@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Order from './components/Order';
 import Create from './components/Create';
 import './App.css';
 
-export default function App(props){
-    const [order, setOrder] = useState();
-    const getPizza = (el) => setOrder(el);
+export default function App(){
     return (
-        <>
-            <main>
-                <Create getPizza = {getPizza}/>
-                <Order myOrder = {order}/>
-            </main>
-        </>
+        <main>
+            <Create />
+            <Order />
+        </main>
     )
 }

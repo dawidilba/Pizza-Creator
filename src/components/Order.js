@@ -1,56 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import { ContextConsumer } from '../index'
-
+import { orderContext } from '../index'
 
 export default withRouter(Order);
 
 function Order(props){
-    const [order, setOrder] = useState([]);
-    const [cost, setCost] = useState(0);
-    useEffect(() => {
-        if(props.myOrder){
-            setOrder([...order, props.myOrder]);
-        }
-    }, [props.myOrder]);
+    const context = useContext(orderContext);
     useEffect(()=>{
-        let tmp = order.reduce((sum, el)=> {
-            return sum+el.cost
+        let tmp = context.order.reduce((sum, el)=> {
+            return sum+el.price
         }, 0)
-        setCost(tmp);
-    },  [order])
-    const delateOrder = pizza => {
-        setOrder(order.filter(el => pizza !== el)) 
-    }
+        context.setTotalCost(tmp);
+    },  [context])
+
     return (
-        <div>
+        <div className="orderContainer">
             <h2>Your order</h2>
-            <ContextConsumer>
+                <ul>
                 {
-                    (context) => {
-                        context.data.map((el, index) => {
-                            return (
-                                <div key={index}>
-                                    <span>Pizza {el.size} with ({el.ingredients.map(x => " " + x)} ) - price: {el.cost.toFixed(2)}zł</span>
-                                    <i className="fas fa-times" onClick={() => delateOrder(el)}></i>
+                    context.order.map((el, index) => {
+                        return (
+                            <li key={index}>
+                                <div className="inlineBlock">
+                                    <h4>{(index+1) + ". " + el.size.toUpperCase()} PIZZA  </h4>   
+                                    <p>{el.ingredients.map(x => " " + x)} ({el.price.toFixed(2)}zł) </p>
                                 </div>
-                            )
-                        })
-                    }
+                                <button className="close"><i className="fas fa-times" onClick={() => context.del(el)}></i></button>
+                            </li>
+                        )
+                    })
                 }
-            </ContextConsumer>
+                </ul>
                 <div>
-                    {/* {
-                        order.map((el, index) => {
-                            return (
-                                <div key={index}>
-                                    <span>Pizza {el.size} with ({el.ingredients.map(x => " " + x)} ) - price: {el.cost.toFixed(2)}zł</span>
-                                    <i className="fas fa-times" onClick={() => delateOrder(el)}></i>
-                                </div>
-                            )
-                        })
-                    } */}
-                    <span>Total costs : {cost.toFixed(2)}zł </span>
+                    <h3>Total costs : {context.totalCost.toFixed(2)}zł </h3>
                     <button onClick={()=>props.history.push('/payment')}>Order</button>
                 </div>
         </div>

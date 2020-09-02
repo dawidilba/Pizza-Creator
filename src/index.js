@@ -5,20 +5,20 @@ import App from './App'
 import Payment from './components/Payment'
 import Header from './components/Header'
 
-const context = createContext();
-const ContextProvider = context.Provider;
-export const ContextConsumer = context.Consumer;
+export const orderContext = createContext();
+const ContextProvider = orderContext.Provider;
 
 function Routing(){
-    const [cost, setCost] = useState(0);
-    const [data, setData] = useState([]);
-    const update = el => {
-        setData([...data, el]);
-    }
+    const [order, setOrder] = useState([]);
+    const [totalCost, setTotalCost] = useState(0)
+    const update = el => setOrder([...order, el].filter(el => el !== undefined));
+    const del = pizza => setOrder(order.filter(el => el !== pizza));
+    const clear = () => setOrder([]);
+
     return (
         <BrowserRouter>
             <Header />
-            <ContextProvider value= {{data, update}}>
+            <ContextProvider value= {{order, totalCost, update, del, clear, setTotalCost}}>
                 <Route exact path = "/" component={App} />
                 <Route exact path = "/payment" component={Payment} />
             </ContextProvider>
