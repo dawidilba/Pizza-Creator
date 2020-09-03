@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16370e72dc1aa3ee4e510e8ae70bb8d5",
+    "revision": "7d118293519ba76a71e8fce01bd29154",
     "url": "/Pizza-Creator/index.html"
   },
   {
-    "revision": "35a1f28b00c47f9a505d",
-    "url": "/Pizza-Creator/static/css/main.4465d8ce.chunk.css"
+    "revision": "f4bf0a1709d8da1f7fb2",
+    "url": "/Pizza-Creator/static/css/main.f4ef76e8.chunk.css"
   },
   {
     "revision": "19a3ee5732edce6dbbd1",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Pizza-Creator/static/js/2.50641123.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "35a1f28b00c47f9a505d",
-    "url": "/Pizza-Creator/static/js/main.3c1e4f86.chunk.js"
+    "revision": "f4bf0a1709d8da1f7fb2",
+    "url": "/Pizza-Creator/static/js/main.4f3f8b8f.chunk.js"
   },
   {
     "revision": "01e7ef274102fd031791",
