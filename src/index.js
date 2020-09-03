@@ -1,6 +1,6 @@
 import React, {useState, createContext} from 'react';
 import ReactDOM from 'react-dom'
-import {Route, BrowserRouter} from 'react-router-dom'
+import {Route, HashRouter as BrowserRouter} from 'react-router-dom'
 import App from './components/App'
 import Payment from './components/Payment'
 import Header from './components/Header'
