@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/Pizza-Creator/static/css/main.d76e708e.chunk.css",
-    "main.js": "/Pizza-Creator/static/js/main.66a9a849.chunk.js",
-    "main.js.map": "/Pizza-Creator/static/js/main.66a9a849.chunk.js.map",
+    "main.css": "/Pizza-Creator/static/css/main.4465d8ce.chunk.css",
+    "main.js": "/Pizza-Creator/static/js/main.3c1e4f86.chunk.js",
+    "main.js.map": "/Pizza-Creator/static/js/main.3c1e4f86.chunk.js.map",
     "runtime-main.js": "/Pizza-Creator/static/js/runtime-main.ba7f81be.js",
     "runtime-main.js.map": "/Pizza-Creator/static/js/runtime-main.ba7f81be.js.map",
     "static/js/2.50641123.chunk.js": "/Pizza-Creator/static/js/2.50641123.chunk.js",
     "static/js/2.50641123.chunk.js.map": "/Pizza-Creator/static/js/2.50641123.chunk.js.map",
     "index.html": "/Pizza-Creator/index.html",
-    "precache-manifest.f4e7c50cbb68628b2c14d9e545d3c0dd.js": "/Pizza-Creator/precache-manifest.f4e7c50cbb68628b2c14d9e545d3c0dd.js",
+    "precache-manifest.a6ab3d9e3744ed77b943d94e370c269b.js": "/Pizza-Creator/precache-manifest.a6ab3d9e3744ed77b943d94e370c269b.js",
     "service-worker.js": "/Pizza-Creator/service-worker.js",
-    "static/css/main.d76e708e.chunk.css.map": "/Pizza-Creator/static/css/main.d76e708e.chunk.css.map",
-    "static/js/2.50641123.chunk.js.LICENSE.txt": "/Pizza-Creator/static/js/2.50641123.chunk.js.LICENSE.txt"
+    "static/css/main.4465d8ce.chunk.css.map": "/Pizza-Creator/static/css/main.4465d8ce.chunk.css.map",
+    "static/js/2.50641123.chunk.js.LICENSE.txt": "/Pizza-Creator/static/js/2.50641123.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Pizza-Creator/static/media/pizza-3007395_640.fd3b6dd3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.ba7f81be.js",
     "static/js/2.50641123.chunk.js",
-    "static/css/main.d76e708e.chunk.css",
-    "static/js/main.66a9a849.chunk.js"
+    "static/css/main.4465d8ce.chunk.css",
+    "static/js/main.3c1e4f86.chunk.js"
   ]
 }
