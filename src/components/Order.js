@@ -12,7 +12,6 @@ function Order(props){
         }, 0)
         context.setTotalCost(tmp);
     },  [context])
-
     return (
         <div className="orderContainer">
             <h2>Your order</h2>
@@ -21,19 +20,18 @@ function Order(props){
                     context.order.map((el, index) => {
                         return (
                             <li key={index}>
-                                <div className="inlineBlock">
-                                    <h4>{(index+1) + ". " + el.size.toUpperCase()} PIZZA  </h4>   
+                                <div className="inlineDiv">
+                                    <h4>{(index+1) + ". " + el.size.toUpperCase()} PIZZA</h4>   
                                     <p>{el.ingredients.map(x => " " + x)} ({el.price.toFixed(2)}zł) </p>
                                 </div>
                                 <button className="close"><i className="fas fa-times" onClick={() => context.del(el)}></i></button>
                             </li>
-                        )
-                    })
+                        )})
                 }
                 </ul>
                 <div>
                     <h3>Total costs : {context.totalCost.toFixed(2)}zł </h3>
-                    <button onClick={()=>props.history.push('/payment')}>Order</button>
+                    <button onClick={()=>props.history.push('/payment')} disabled={ context.totalCost === 0 ? true : false}>Order</button>
                 </div>
         </div>
     )

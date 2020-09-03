@@ -1,3 +1,3 @@
 # Pizza Creator
 
-Application for creating a pizzas with your favourites ingredients
+Application for creating and ordering pizzas with your favourites ingredients

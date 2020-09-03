@@ -33,6 +33,7 @@ export default function Create(props){
     };
     const pizzaInfo = () => {
         let size;
+        let ingredientsArr = [];
         switch(price){
             case 11: 
             size = "small";
@@ -46,14 +47,13 @@ export default function Create(props){
             default:
             size = "";
         }
-        let ingredientsArr = [];
         ingredients.forEach((el) => {
             if(el.checked === true){
                 ingredientsArr.push(el.name);
             }
         })
         if(size !== ""){
-            context.update({size, price: totalPrice, ingredients : ingredientsArr });
+            context.update({size, price: totalPrice, ingredients : ingredientsArr});
         }
         setIngredients(
             ingredients.map(ingredient => {
@@ -81,7 +81,7 @@ export default function Create(props){
             </div>
             <div>
                 <h3> Cost : {totalPrice.toFixed(2)}zł</h3>
-                <button onClick={() => pizzaInfo()}>Add to order</button>
+                <button onClick={() => pizzaInfo()} disabled={(totalPrice !== 0 && (price === 11 || price === 14 || price === 17))? false : true}>Add to order</button>
             </div>
         </div>
     )

@@ -21,8 +21,7 @@ function Pay(props){
                         <li key={index}>
                             <p>{el.size.toUpperCase()} PIZZA : {el.ingredients.map(x => " " + x)} ({el.price.toFixed(2)}zł)</p>
                         </li>
-                    )
-                })
+                    )})
             }
             </ol>  
             <h3>Total payment cost : {context.totalCost.toFixed(2)}zł</h3>
