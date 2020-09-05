@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Pizza-Creator/static/css/main.5e307b23.chunk.css",
-    "main.js": "/Pizza-Creator/static/js/main.3c1e4f86.chunk.js",
-    "main.js.map": "/Pizza-Creator/static/js/main.3c1e4f86.chunk.js.map",
-    "runtime-main.js": "/Pizza-Creator/static/js/runtime-main.ba7f81be.js",
-    "runtime-main.js.map": "/Pizza-Creator/static/js/runtime-main.ba7f81be.js.map",
-    "static/js/2.50641123.chunk.js": "/Pizza-Creator/static/js/2.50641123.chunk.js",
-    "static/js/2.50641123.chunk.js.map": "/Pizza-Creator/static/js/2.50641123.chunk.js.map",
-    "index.html": "/Pizza-Creator/index.html",
-    "precache-manifest.3ef9396b0d53b8da97fe74c6e70bcb17.js": "/Pizza-Creator/precache-manifest.3ef9396b0d53b8da97fe74c6e70bcb17.js",
-    "service-worker.js": "/Pizza-Creator/service-worker.js",
-    "static/css/main.5e307b23.chunk.css.map": "/Pizza-Creator/static/css/main.5e307b23.chunk.css.map",
-    "static/js/2.50641123.chunk.js.LICENSE.txt": "/Pizza-Creator/static/js/2.50641123.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/Pizza-Creator/static/media/pizza-3007395_640.fd3b6dd3.jpg"
+    "main.css": "/pizza-creator/static/css/main.8ede9ede.chunk.css",
+    "main.js": "/pizza-creator/static/js/main.746f1e5f.chunk.js",
+    "main.js.map": "/pizza-creator/static/js/main.746f1e5f.chunk.js.map",
+    "runtime-main.js": "/pizza-creator/static/js/runtime-main.e4dac909.js",
+    "runtime-main.js.map": "/pizza-creator/static/js/runtime-main.e4dac909.js.map",
+    "static/js/2.50641123.chunk.js": "/pizza-creator/static/js/2.50641123.chunk.js",
+    "static/js/2.50641123.chunk.js.map": "/pizza-creator/static/js/2.50641123.chunk.js.map",
+    "index.html": "/pizza-creator/index.html",
+    "precache-manifest.1effdc0520f4d5b9f5582dec21df38d8.js": "/pizza-creator/precache-manifest.1effdc0520f4d5b9f5582dec21df38d8.js",
+    "service-worker.js": "/pizza-creator/service-worker.js",
+    "static/css/main.8ede9ede.chunk.css.map": "/pizza-creator/static/css/main.8ede9ede.chunk.css.map",
+    "static/js/2.50641123.chunk.js.LICENSE.txt": "/pizza-creator/static/js/2.50641123.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/pizza-creator/static/media/pizza-3007395_640.fd3b6dd3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ba7f81be.js",
+    "static/js/runtime-main.e4dac909.js",
     "static/js/2.50641123.chunk.js",
-    "static/css/main.5e307b23.chunk.css",
-    "static/js/main.3c1e4f86.chunk.js"
+    "static/css/main.8ede9ede.chunk.css",
+    "static/js/main.746f1e5f.chunk.js"
   ]
 }
